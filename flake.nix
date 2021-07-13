@@ -17,7 +17,7 @@
           pkgs.mkShell {
             buildInputs = (import ./build-inputs.nix) { inherit pkgs; };
           };
-          defaultPackage = import ./default.nix { inherit nixpkgs pkgs; };
+        defaultPackage = import ./default.nix { inherit nixpkgs pkgs; };
         }
       );
 }
