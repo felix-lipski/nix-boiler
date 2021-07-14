@@ -2,9 +2,23 @@
 with pkgs;
 let
   customPython = pkgs.python39.buildEnv.override {
-    # To add python packages add them here   v
-    extraLibs = with pkgs.python39Packages; [ ];
+    extraLibs = with pkgs.python39Packages; [
+      # Add Python packages here
+      pillow
+    ];
   };
+  customGhc = haskellPackages.ghcWithPackages (pkgs: with pkgs; [
+    # Add Haskell packages here
+    lens
+  ]);
+  ocamlPkgs = (with ocamlPackages; [ 
+    # Add OCaml packages here
+    findlib utop 
+  ]);
 in
-# Add your dependecies in the list below:
-[ ]
+# Add your dependecies to the list below:
+[ 
+  customPython
+  customGhc
+  ocaml
+] ++ ocamlPkgs
