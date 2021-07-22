@@ -3,21 +3,35 @@ let
   lib           = nixpkgs.lib;
 in
 pkgs.pkgs.stdenv.mkDerivation rec {
-  pname       = "boilerplate";
-  version     = "0.0.0";
-  unpackPhase = ''
-    true
-    '';
+  pname       = "nix-boiler";
+  version     = "0.0.1";
+
+  src = ./src;
+
+  # unpackPhase = ''
+  #   true
+  #   '';
+
   buildInputs = (import ./build-inputs.nix) { inherit pkgs; };
 
   buildPhase  = ''
-    echo "example file" > foo.txt
+    make boiler
     '';
+    # cp -dr ${./src} src
+    # ls >> foo.txt
+    # cat src/Makefile >> foo.txt
+    # ls src >> foo.txt
+    # echo "example file" > foo.txt
+    # make boiler
+    # cp -dr ${./src} src
+    # (cd src & make boiler)
 
-  # Everything in the $out/ will be available in the package in the store
   installPhase = ''
     mkdir -p $out/bin
-    cp ${./README.md} $out/bin/README.md
-    cp foo.txt $out/bin/foo.txt
+    cp boiler $out/bin/nix-boiler
     '';
+    # cp foo.txt $out/bin/foo.txt
+    # cp src/boiler $out/bin/nix-boiler
+    # mkdir -p $out/bin
+    # cp ${./src/weird.ml} $out/bin/weird.ml
 }

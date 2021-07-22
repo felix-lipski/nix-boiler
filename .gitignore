@@ -1,1 +1,9 @@
 result
+template-original
+test/
+src/boiler
+src/build.cmi
+src/boiler.cmi
+src/build-inputs.nix
+*.o
+*.cmx
