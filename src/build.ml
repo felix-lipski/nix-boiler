@@ -50,8 +50,8 @@ let python : lang = {
 }
 
 
-let gen_build_inputs langs = 
-    (let oc = open_out "build-inputs.nix" in
+let gen_build_inputs out_folder langs = 
+    (let oc = open_out (out_folder ^ "/build-inputs.nix") in
     output_string oc "{ pkgs ? import <nixpkgs> { } }:\nwith pkgs;\nlet\n";
     List.iter (fun l ->
         if Array.exists (fun x -> String.equal x ("--" ^ l.name)) Sys.argv
