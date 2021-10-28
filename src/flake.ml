@@ -42,11 +42,11 @@ let flake_lock = "{
     },
     \"nixpkgs\": {
       \"locked\": {
-        \"lastModified\": 1623601054,
-        \"narHash\": \"sha256-YrS++a0N3up+cgUqi719bZb7NNiGTM9V0YzHLhGrGWk=\",
+        \"lastModified\": 1635405685,
+        \"narHash\": \"sha256-S7QGJFLHmUzbefmeje+1pSuzOg7rXIG5oKiXImkA3x8=\",
         \"owner\": \"NixOS\",
         \"repo\": \"nixpkgs\",
-        \"rev\": \"9a3f4867099bc868b77817c272dce9f39f808376\",
+        \"rev\": \"19b87ec97df2819e4f4862d1c7521a4fec2e20fc\",
         \"type\": \"github\"
       },
       \"original\": {
